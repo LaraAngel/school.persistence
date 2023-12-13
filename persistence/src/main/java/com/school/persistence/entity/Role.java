@@ -4,8 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
-@MappedSuperclass
+@Entity
 public class Role {
-    private String roleName;
-    private String roleDescription;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String description;
 }
