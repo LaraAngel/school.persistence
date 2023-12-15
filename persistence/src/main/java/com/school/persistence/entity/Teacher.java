@@ -13,6 +13,11 @@ public class Teacher extends User{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String password;
-    @ElementCollection
+    private Double salary;
+
+    @ElementCollection//List of languages the teacher can teach
     private Set<Language> languages;
+
+    @ManyToOne//Only one status needed
+    private Status status;
 }
