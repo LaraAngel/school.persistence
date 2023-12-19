@@ -1,5 +1,6 @@
 package com.school.persistence.entity;
 
+import com.school.persistence.enums.EmployeeStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,15 +10,10 @@ import java.util.Set;
 @Data
 @Entity
 public class Teacher extends User{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String password;
+
     private Double salary;
+    private EmployeeStatus status;
 
-    @ElementCollection//List of languages the teacher can teach
+    @ManyToMany
     private Set<Language> languages;
-
-    @ManyToOne//Only one status needed
-    private Status status;
 }
